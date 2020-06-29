@@ -82,26 +82,26 @@ export class DashboardView extends PolymerElement {
             quickLinks: {
                 type: Array,
                 value: [
-                    {
-                        text: '上传pipeline',
-                        desc: 'Pipelines',
-                        link: `/pipeline/`,
-                    },
-                    {
-                        text: '查看运行中的pipeline',
-                        desc: 'Pipelines',
-                        link: `/pipeline/#/runs`,
-                    },
+                    // {
+                    //     text: '上传pipeline',
+                    //     desc: 'Pipelines',
+                    //     link: `/pipeline/`,
+                    // },
+                    // {
+                    //     text: '查看运行中的pipeline',
+                    //     desc: 'Pipelines',
+                    //     link: `/pipeline/#/runs`,
+                    // },
                     {
                         text: '新建Notebook 服务器',
                         desc: 'Notebook Servers',
                         link: `/jupyter/new?namespace=kubeflow`,
                     },
-                    {
-                        text: '查看katib超参数训练',
-                        desc: 'Katib',
-                        link: `/katib/`,
-                    },
+                    // {
+                    //     text: '查看katib超参数训练',
+                    //     desc: 'Katib',
+                    //     link: `/katib/`,
+                    // },
                 ],
             },
             platformDetails: Object,
