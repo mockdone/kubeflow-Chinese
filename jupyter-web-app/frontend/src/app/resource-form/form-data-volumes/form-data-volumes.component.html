@@ -1,0 +1,43 @@
+<div class="group-wrapper" [formGroup]="parentForm">
+  <h3>
+    <fa-icon [icon]="['fas', 'hdd']" class="check"></fa-icon>
+    设置数据文件持久化挂载
+  </h3>
+  <p>设置数据集文件持久化挂载</p>
+  <p *ngIf="readonly">
+    *集群管理员已禁止设置数据文件持久化挂载
+  </p>
+  <button
+    mat-stroked-button
+    color="accent"
+    (click)="addVol()"
+    type="button"
+    [disabled]="readonly"
+  >
+    <mat-icon>add</mat-icon>新增数据卷
+  </button>
+
+  <div *ngFor="let vol of datavols; let i = index" class="volume-wrapper">
+    <app-volume
+      [volume]="vol"
+      [notebookName]="parentForm.get('name').value"
+      [namespace]="parentForm.get('namespace').value"
+      [pvcs]="pvcs"
+      [ephemeral]="false"
+      [defaultStorageClass]="defaultStorageClass"
+    >
+    </app-volume>
+
+    <div class="del-btn">
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="deleteVol(i)"
+        type="button"
+        [disabled]="readonly"
+      >
+        <mat-icon>删除</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

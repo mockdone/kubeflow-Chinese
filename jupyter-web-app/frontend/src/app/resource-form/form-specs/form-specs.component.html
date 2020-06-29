@@ -1,0 +1,25 @@
+<!-- Notebook CPU/RAM -->
+<div class="group-wrapper" [formGroup]="parentForm">
+  <h3>
+    <fa-icon [icon]="['fas', 'microchip']" class="check"></fa-icon>
+    服务器规格配置
+  </h3>
+  <p>
+    指定notebook服务器使用的的CPU和RAM总量。
+    对于CPU密集型工作负载，可以选择1个以上的CPU（例如1.5）。
+  </p>
+
+  <div class="inputs-wrapper">
+    <mat-form-field appearance="outline">
+      <mat-label>CPU</mat-label>
+      <input matInput placeholder="# of CPU Cores" formControlName="cpu" />
+      <mat-error>请设置CPU</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>内存</mat-label>
+      <input matInput placeholder="内存总量" formControlName="memory" />
+      <mat-error>请设置内存总量</mat-error>
+    </mat-form-field>
+  </div>
+</div>

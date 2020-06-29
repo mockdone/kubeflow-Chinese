@@ -1,0 +1,42 @@
+<div *ngIf="volume" [formGroup]="volume" class="volume-wrapper">
+  <mat-form-field appearance="outline" id="type">
+    <mat-label>类型</mat-label>
+    <mat-select formControlName="type">
+      <mat-option
+        [disabled]="newTypeIsDisabled()"
+        [matTooltip]="newTypeTooltip()"
+        value="New"
+        >新建</mat-option
+      >
+      <mat-option value="Existing">系统已有</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Volume Name Input -->
+  <mat-form-field appearance="outline" id="name">
+    <mat-label>PV名称</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <!-- Size Input -->
+  <mat-form-field appearance="outline" id="size">
+    <mat-label>PV大小</mat-label>
+    <input matInput formControlName="size" />
+  </mat-form-field>
+
+  <!-- Mode Input -->
+  <mat-form-field appearance="outline" id="mode">
+    <mat-label>读写模式</mat-label>
+    <mat-select formControlName="mode">
+      <mat-option value="ReadWriteOnce">单次读写</mat-option>
+      <mat-option value="ReadOnlyMany">多点只读</mat-option>
+      <mat-option value="ReadWriteMany">多点读写</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Mount Input -->
+  <mat-form-field appearance="outline" id="path">
+    <mat-label>挂载路径</mat-label>
+    <input matInput formControlName="path" />
+  </mat-form-field>
+</div>

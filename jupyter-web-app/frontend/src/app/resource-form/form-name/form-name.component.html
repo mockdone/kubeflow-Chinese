@@ -1,0 +1,33 @@
+<div class="group-wrapper" [formGroup]="parentForm">
+  <h3>
+    <fa-icon [icon]="['fas', 'book']" class="check"></fa-icon>
+    Notebook 基本信息配置
+  </h3>
+  <p>
+    设置notebook 服务器名称及所属命名空间
+  </p>
+
+  <div class="inputs-wrapper">
+    <mat-form-field appearance="outline">
+      <mat-label>名称</mat-label>
+      <input
+        matInput
+        placeholder="Notebook 服务器名称"
+        formControlName="name"
+        #name
+      />
+      <mat-error>{{ showNameError() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>命名空间</mat-label>
+      <input
+        matInput
+        placeholder="命名空间"
+        formControlName="namespace"
+        readonly
+      />
+      <mat-error>请填写必填项</mat-error>
+    </mat-form-field>
+  </div>
+</div>

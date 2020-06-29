@@ -1,0 +1,23 @@
+<div class="group-wrapper" [formGroup]="parentForm">
+  <h3>
+    <fa-icon [icon]="['fas', 'laptop-code']" class="check"></fa-icon>
+    工作空间磁盘设置
+  </h3>
+  <p>设置工作空间持久化挂载</p>
+  <p *ngIf="readonly">
+    *集群管理员已禁止设置持久卷挂载
+  </p>
+  <mat-checkbox formControlName="noWorkspace"
+    >不使用持久化</mat-checkbox
+  >
+
+  <app-volume
+    [volume]="parentForm.get('workspace')"
+    [notebookName]="parentForm.value.name"
+    [pvcs]="pvcs"
+    [ephemeral]="parentForm.value.noWorkspace"
+    [namespace]="parentForm.value.namespace"
+    [defaultStorageClass]="defaultStorageClass"
+  >
+  </app-volume>
+</div>

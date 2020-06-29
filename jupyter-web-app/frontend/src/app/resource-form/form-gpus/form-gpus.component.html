@@ -1,0 +1,32 @@
+<div class="group-wrapper" [formGroup]="parentForm">
+  <h3>
+    <mat-icon class="gpu">memory</mat-icon>
+    GPU 配置
+  </h3>
+  <p>
+    设置notebook服务器可使用的GPU资源
+  </p>
+
+  <div class="inputs-wrapper" [formGroup]="parentForm.get('gpus')">
+    <mat-form-field class="wide" appearance="outline">
+      <mat-label>GPU数量</mat-label>
+      <mat-select matNativeControl formControlName="num">
+        <mat-option value="none">不设置GPU</mat-option>
+        <mat-option *ngFor="let v of gpusCount" [value]="v">
+          {{ v }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="wide" appearance="outline">
+      <mat-label>GPU 厂商</mat-label>
+      <mat-select matNativeControl formControlName="vendor" id="gpu-vendor">
+        <mat-option *ngFor="let v of vendors" [value]="v.limitsKey">
+          {{ v.uiName }}
+        </mat-option>
+        <mat-option value="aliyun.com/gpu-mem">一道云</mat-option>
+      </mat-select>
+      <mat-error>{{ getVendorError() }}</mat-error>
+    </mat-form-field>
+  </div>
+</div>
