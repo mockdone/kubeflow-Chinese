@@ -66,10 +66,10 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
             menuLinks: {
                 type: Array,
                 value: [
-                    // {
-                    //     link: '/pipeline/',
-                    //     text: 'Pipelines 流水线',
-                    // },
+                    {
+                        link: '/pipeline/',
+                        text: 'Pipelines 工作流',
+                    },
                     {
                         link: '/jupyter/',
                         text: 'Notebook 服务器',

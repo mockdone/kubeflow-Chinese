@@ -82,16 +82,16 @@ export class DashboardView extends PolymerElement {
             quickLinks: {
                 type: Array,
                 value: [
-                    // {
-                    //     text: '上传pipeline',
-                    //     desc: 'Pipelines',
-                    //     link: `/pipeline/`,
-                    // },
-                    // {
-                    //     text: '查看运行中的pipeline',
-                    //     desc: 'Pipelines',
-                    //     link: `/pipeline/#/runs`,
-                    // },
+                    {
+                        text: '上传pipeline',
+                        desc: 'Pipelines',
+                        link: `/pipeline/`,
+                    },
+                    {
+                        text: '查看运行中的pipeline',
+                        desc: 'Pipelines',
+                        link: `/pipeline/#/runs`,
+                    },
                     {
                         text: '新建Notebook 服务器',
                         desc: 'Notebook Servers',
