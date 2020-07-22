@@ -1,7 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {FormGroup, ValidatorFn, AbstractControl} from '@angular/forms';
-import {Subscription} from 'rxjs';
-import {GPUVendor} from 'src/app/utils/types';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { GPUVendor } from 'src/app/utils/types';
 
 @Component({
   selector: 'app-form-gpus',
@@ -15,11 +15,9 @@ export class FormGpusComponent implements OnInit {
   subscriptions = new Subscription();
 
   maxGPUs = 16;
-  gpusCount = ['256m', '512m', '1024m', '2048m', '4096m'];
+  gpusCount = ['1', '2', '4', '8'];
 
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit() {
     this.gpuCtrl = this.parentForm.get('gpus') as FormGroup;
@@ -46,7 +44,7 @@ export class FormGpusComponent implements OnInit {
     const vendorCtrl = this.parentForm.get('gpus').get('vendor');
 
     if (vendorCtrl.hasError('vendorNullName')) {
-      return `请选择GPU厂商`;
+      return `You must also specify the GPU Vendor for the assigned GPUs`;
     }
   }
 
@@ -58,7 +56,7 @@ export class FormGpusComponent implements OnInit {
       const vendor = this.parentForm.get('gpus').get('vendor').value;
 
       if (num !== 'none' && vendor === '') {
-        return {vendorNullName: true};
+        return { vendorNullName: true };
       } else {
         return null;
       }
